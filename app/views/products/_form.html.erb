@@ -1,0 +1,17 @@
+<%= simple_form_for(@product, remote: true) do |f| %>
+  <%= render 'shared/error_messages', resource: @product %>
+
+  <%= f.association :shop, collection: @shops, selected: !current_user.admin? && @current_shop.id, disabled: !current_user.admin? %>
+  <%= f.input :name %>
+  <%= f.input :code %>
+  <%= f.input :description %>
+
+  <div class="row">
+    <div class="col"><%= f.input :price %></div>
+    <div class="col"><%= f.input :stock %></div>
+  </div>
+
+  <div class="form-actions d-flex justify-content-end mt-5">
+    <%= f.button :submit, @product.persisted? ? 'Update' : 'Add', class: 'btn btn-primary' %>
+  </div>
+<% end %>

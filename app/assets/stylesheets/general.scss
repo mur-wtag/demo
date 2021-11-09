@@ -1,0 +1,53 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $primary-font-family;
+  background: $white;
+  color: $black;
+  letter-spacing: -1px;
+
+  .table th, .table td {
+    vertical-align: middle;
+  }
+}
+
+body > .layout-wrapper {
+  min-height: 95vh;
+}
+
+.line-item-quantity {
+  width: 64px;
+}
+
+.grand-total {
+  font-size: 1.5rem;
+}
+
+.add-to-cart {
+  cursor: pointer;
+}
+
+.order-input {
+  width: 148px;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.product-widget {
+  height: 150px;
+
+  .edit-product {
+    bottom: 0;
+  }
+}

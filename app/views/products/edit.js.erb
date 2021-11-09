@@ -1,0 +1,5 @@
+$('#editRecord .modal-title').text('<%= t("shared.update", resource: "Product") %>');
+$('#editRecord .modal-body').html('<%= j render("form") %>');
+
+$('#editRecord .form-actions').prepend("<button type='button' class='btn btn-secondary mr-2' data-dismiss='modal' aria-label='Close'>Close</button>");
+$('#editRecord').modal('show');

@@ -1,0 +1,148 @@
+$sidebar-width: 300px;
+$brand-details-height: 250px;
+
+body {
+  overflow-x: hidden;
+  background: $white;
+}
+
+#sidebar-wrapper {
+  height: 100vh;
+  top: 0;
+  margin-left: 0;
+  min-width: $sidebar-width;
+  border-radius: 0 30px 30px 0;
+  overflow-x: hidden;
+  background: $purple;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper:not(.collapsed) .list-group {
+  width: $sidebar-width;
+}
+
+#page-content-wrapper {
+  min-width: calc(100vw - 53px);
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.sidebar {
+  overflow-y: auto;
+  position: relative;
+
+  &.collapsed {
+    min-width: 53px !important;
+
+    .brand {
+      @extend .d-none;
+    }
+
+    ul.list-group {
+      width: 55px;
+      height: 100%;
+      padding-top: 120px;
+
+      .nav-title {
+        display: none;
+      }
+
+      .painter {
+        width: 53px;
+        height: calc(100vh - 30px);
+      }
+    }
+  }
+
+  .menu-toggler {
+    @extend .flex-centered;
+    @extend .position-absolute;
+    @extend .rounded-circle;
+    top: 10px;
+    right: 7px;
+    z-index: 2;
+    height: 32px;
+    width: 32px;
+
+    background: $gray-100;
+  }
+
+  .brand {
+    @extend .position-sticky;
+    @extend .flex-centered;
+    background: $gray-700;
+    height: $brand-details-height;
+    top: 0;
+    z-index: 1;
+
+    &.top-active {
+      border-bottom-right-radius: 20px;
+    }
+
+    .logo-container {
+      color: $white;
+
+      .logo {
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .align-items-center;
+        @extend .text-center;
+
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        img {
+          @extend .rounded-circle;
+          @extend .mb-2;
+
+          max-width: 100px;
+          height: auto;
+        }
+      }
+
+      .subtitle {
+        @extend .text-right;
+
+        font-size: 0.75rem;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .nav-item {
+    &.active {
+      background: $indigo;
+    }
+
+    a.nav-link {
+      color: $white;
+    }
+  }
+
+  #lowerMenu {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+}

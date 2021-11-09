@@ -1,0 +1,30 @@
+<%= content_for :page_title do %>
+  <div class="d-flex align-items-center">
+    <%= t "products.nav_title" %><div class="record-count ml-1">( <%= @products.count %> )</div>
+  </div>
+<% end %>
+<%= content_for :additional_header do %>
+  <%= link_to t('shared.new', resource: 'Product'), new_product_path, remote: true, class: 'btn btn-primary' if can?(:manage, Product) && @products.any? %>
+<% end %>
+
+<div class="mb-3 current-shop" data-current-shop="<%= @current_shop.id %>">
+  <% if current_user.admin? %>
+    <%= render 'shared/shop_selector', current_shop: @current_shop, shops: @shops %>
+  <% else %>
+    <p>Current Shop: <b><%= @current_shop %></b></p>
+  <% end %>
+</div>
+
+<div class="row px-2">
+  <% if @products.empty? %>
+    <p>Show empty state</p>
+    <p><%= link_to(t('shared.new', resource: 'Product'), new_product_path, remote: true, class: 'btn btn-primary') if can?(:manage, Product) %></p>
+  <% else %>
+    <%= render 'collection', products: @products %>
+  <% end %>
+</div>
+
+<%= content_for :modal do %>
+  <%= render "shared/modals/add_new" %>
+  <%= render "shared/modals/edit" %>
+<% end %>

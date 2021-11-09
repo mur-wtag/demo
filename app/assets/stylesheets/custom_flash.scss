@@ -1,0 +1,152 @@
+.flash-wrapper {
+  position: fixed;
+  z-index: 1050;
+  bottom: -5rem;
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  pointer-events: none;
+
+  @media screen and (min-width: 768px) {
+    .custom-ui-flash--nav-offset {
+      margin-left: 24rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .custom-ui-flash {
+      font-size: 1.4rem;
+    }
+  }
+
+  .custom-ui-flash {
+    position: relative;
+    display: flex;
+    margin: 0 1.6rem 0 0.6rem;
+    background: rgba(0,0,0,0.88);
+    box-shadow: 0 0 0 1px rgba(63,63,68,0.05),0 1px 3px 0 rgba(63,63,68,0.15);
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: default;
+    max-width: 400px;
+    pointer-events: auto;
+    font-size: 1.5rem;
+
+    .custom-ui-flash__message {
+      padding: 0.8rem 1.6rem;
+      text-align: center;
+    }
+
+    p { margin: 0; }
+
+    .custom-ui-flash__close-button {
+      opacity: 0.88;
+      display: none;
+
+      button {
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+      }
+
+      .custom-ui-button {
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        height: auto;
+        margin: 0;
+        background: inherit;
+        font-family: inherit;
+        font-weight: 400;
+        white-space: nowrap;
+        cursor: pointer;
+        text-transform: none;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        padding: 0.9rem 1.5rem;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f9fafb));
+        background: linear-gradient(to bottom, #fff, #f9fafb);
+        border: 1px solid #c4cdd5;
+        box-shadow: 0 1px 0 0 rgba(22,29,37,0.05);
+        border-radius: 3px;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        color: #fff;
+        transition: all 0.2s ease-out;
+        transition-property: background, border, box-shadow, color;
+        bottom: 1px;
+      }
+
+      .custom-ui-button--transparent {
+        background: transparent;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        text-decoration: none;
+        user-select: text;
+      }
+
+      .custom-ui-button--icon-only {
+        padding-right: 9px;
+        padding-left: 9px;
+      }
+
+      .custom-ui-button--transparent.ui-button--icon-only {
+        color: #212b35;
+      }
+
+      .next-icon--color-white {
+        color: transparent;
+        fill: #ffffff;
+      }
+
+      .custom-ui-button .next-icon {
+        position: relative;
+        top: -0.04em;
+        margin-top: -1.3rem;
+        margin-bottom: -1.3rem;
+      }
+
+      .next-icon {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        top: -0.15em;
+        display: inline-block;
+        vertical-align: middle;
+        fill: #ffffff;
+      }
+
+      .next-icon--size-12 {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  .custom-ui-flash--error {
+    background: rgba(191,7,17,0.88);
+
+    .custom-ui-flash__close-button {
+      display: block;
+      padding: 0.4rem 0.8rem;
+      color: #ffffff;
+    }
+
+    .custom-ui-flash__message {
+      padding: 0.8rem 0.8rem 0.8rem 1.6rem;
+    }
+  }
+
+  .custom-ui-flash--is-animating-in {
+    animation-duration: 0.3s;
+    animation-name: flashAnimateIn;
+    animation-timing-function: ease-out;
+  }
+}
+
+.flash-wrapper--is-visible {
+  display: flex;
+}

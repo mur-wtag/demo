@@ -1,0 +1,17 @@
+<% products.each do |product| %>
+  <div class="product-widget mb-4 px-2">
+    <div class="card rounded border-0 bg-white shadowish">
+      <div class="card-body align-items-center position-relative">
+        <% if can?(:manage, product) %>
+          <div class="edit-product position-absolute rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Edit">
+            <%= link_to(edit_product_path(product), remote: true) do %>
+              Edit<%#= embedded_svg "edit.svg" %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <%= product.to_s %>
+      </div>
+    </div>
+  </div>
+<% end %>

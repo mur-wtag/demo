@@ -1,0 +1,5 @@
+$('#addNewRecord .modal-title').text('<%= t("shared.new", resource: "Product") %>');
+$('#addNewRecord .modal-body').html('<%= j render("form") %>');
+
+$('#addNewRecord .form-actions').prepend("<button type='button' class='btn btn-secondary mr-2' data-dismiss='modal' aria-label='Close'>Close</button>");
+$('#addNewRecord').modal('show');
